@@ -1,7 +1,6 @@
 body {
 height: 100%;
 border: 1px solid #512500;
-align: center;
 text-align: center;
 background-color: #E5DFDC;
 color: #512500;
@@ -13,19 +12,69 @@ section {
 }
 
 #button {
-  width: 300px
+  width: 300px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding-top: 60px
+  padding-top: 40px;
 }
 
 .box {
-  border: 1px solid black;
   width: 100px;
   height: 100px;
-  font-size: 90px
+  font-size: 90px;
+}
+
+.one {
+  border-right: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+}
+
+.two {
+  border-top: 1px solid #512500;
+  border-right: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+}
+
+.three {
+  border-top: 1px solid #512500;
+  border-right: 1px solid #512500;
+}
+
+.four {
+  border-left: 1px solid #512500;
+  border-right: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+}
+
+.five {
+  border-left: 1px solid #512500;
+  border-right: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+  border-top: 1px solid #512500;
+}
+
+.six {
+  border-left: 1px solid #512500;
+  border-right: 1px solid #512500;
+  border-top: 1px solid #512500;
+}
+
+.seven {
+  border-left: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+}
+
+.eight {
+  border-left: 1px solid #512500;
+  border-bottom: 1px solid #512500;
+  border-top: 1px solid #512500;
+}
+
+.nine {
+  border-left: 1px solid #512500;
+  border-top: 1px solid #512500;
 }

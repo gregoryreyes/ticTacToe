@@ -1,117 +1,123 @@
 
-var players = {playerOne: 'X', playerTwo: 'O'};
-var playerOneChoices = [];
-var playerTwoChoices = [];
-var currentPlayer = '';
-var gameBoard = [];
-var box = document.getElementsByClassName('box');
-var counter = [];
-var topNumber = 0;
+const players = {
+  playerOne: 'X',
+  playerTwo: 'O'
+};
+const playerOneChoices = [];
+const playerTwoChoices = [];
+let currentPlayer = '';
+let gameBoard = [];
+const boxes = document.getElementsByClassName('box');
+let counter = [];
+let topNumber = 0;
 
-for (i = 0; i < box.length; i++) {
-    var active = box[i];
-    active.onclick = runGame;
-    gameBoard.push(active);
-  } 
+for ( const box of boxes ) {
+  box.onclick = runGame;
+  gameBoard.push( box );
+}
 
 function runGame() {
-  if (currentPlayer) {
-  } else {
+  if ( !currentPlayer ) {
     currentPlayer = players.playerOne;
   }
-  
-  if(this.innerText == '' ) { 
+
+  if( this.innerText == '' ) {
     this.innerText = currentPlayer;
   }
 
-  var id = parseInt(this.id) + 1;
-  console.log(id)
-  switchPlayer(id);
-  counter.push([1]);
+  let id = parseInt( this.id ) + 1;
+  switchPlayer( id );
+  counter.push( [1] );
 
   function removeClick() {
-  for (i = 0; i < box.length; i++) {
-      var active = box[i];
-      console.log(active.innerText)
-      if (active.innerText != '') {
-        console.log('filled');
-        active.onclick = function(){
-          return false;}
+    for ( const box of boxes ) {
+      if ( box.innerText !== '' ) {
+        box.onClick = function() {
+          return false;
+        }
       }
     }
   }
-  removeClick()
+
+  removeClick();
+
   winCombo();
-  if (topNumber == 0){
-  checkIfLocked();}}
 
-function switchPlayer(id){
-  if (currentPlayer == players.playerOne){
+  if ( topNumber === 0 ){
+    checkIfLocked();
+  }
+
+}
+
+function switchPlayer( id ){
+  if ( currentPlayer === players.playerOne ){
     currentPlayer = players.playerTwo;
-    playerOneChoices.push(id);
-  } 
-  else {currentPlayer = players.playerOne;
+    playerOneChoices.push( id );
+  } else {
+    currentPlayer = players.playerOne;
     playerTwoChoices.push(id);
-  }}; 
+  }
+}
 
-var button = document.getElementById('button');
+let button = document.getElementById('button');
 button.onclick = clearBoard;
 
 function clearBoard() {
-    for (i = 0; i < gameBoard.length; i++)  {
-      gameBoard[i].innerText = '';
-      console.log(gameBoard[i]);
-      counter = [];
-      window.location.reload()
-    }}
+  for ( let board of gameBoard ) {
+    console.log( 'board !!! ----> ', board );
+    board.innerText = '';
+    counter = [];
+    window.location.reload();
+  }
+}
 
 function winCombo() {
-  if (box[0].innerText == 'X' && box[1].innerText == 'X' && box[2].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[3].innerText == 'X' && box[4].innerText == 'X' && box[5].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[6].innerText == 'X' && box[7].innerText == 'X' && box[8].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[0].innerText == 'X' && box[3].innerText == 'X' && box[6].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[1].innerText == 'X' && box[4].innerText == 'X' && box[7].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[2].innerText == 'X' && box[5].innerText == 'X' && box[8].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[0].innerText == 'X' && box[4].innerText == 'X' && box[8].innerText == 'X'){
-      msg.innerText = 'X WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[2].innerText == 'X' && box[4].innerText == 'X' && box[6].innerText == 'X'){
+  if (boxes[0].innerText == 'X' && boxes[1].innerText == 'X' && boxes[2].innerText == 'X'){
       msg.innerText = 'X WIN!'; topNumber++; clearClick();
     } else if (
-      box[0].innerText == 'O' && box[1].innerText == 'O' && box[2].innerText == 'O'){
+      boxes[3].innerText == 'X' && boxes[4].innerText == 'X' && boxes[5].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[6].innerText == 'X' && boxes[7].innerText == 'X' && boxes[8].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[0].innerText == 'X' && boxes[3].innerText == 'X' && boxes[6].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[1].innerText == 'X' && boxes[4].innerText == 'X' && boxes[7].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[2].innerText == 'X' && boxes[5].innerText == 'X' && boxes[8].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[0].innerText == 'X' && boxes[4].innerText == 'X' && boxes[8].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[2].innerText == 'X' && boxes[4].innerText == 'X' && boxes[6].innerText == 'X'){
+      msg.innerText = 'X WIN!'; topNumber++; clearClick();
+    } else if (
+      boxes[0].innerText == 'O' && boxes[1].innerText == 'O' && boxes[2].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[3].innerText == 'O' && box[4].innerText == 'O' && box[5].innerText == 'O'){
+    } else if (
+      boxes[3].innerText == 'O' && boxes[4].innerText == 'O' && boxes[5].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[6].innerText == 'O' && box[7].innerText == 'O' && box[8].innerText == 'O'){
+    } else if (
+      boxes[6].innerText == 'O' && boxes[7].innerText == 'O' && boxes[8].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[0].innerText == 'O' && box[3].innerText == 'O' && box[6].innerText == 'O'){
+    } else if (
+      boxes[0].innerText == 'O' && boxes[3].innerText == 'O' && boxes[6].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[1].innerText == 'O' && box[4].innerText == 'O' && box[7].innerText == 'O'){
+    } else if (
+      boxes[1].innerText == 'O' && boxes[4].innerText == 'O' && boxes[7].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[2].innerText == 'O' && box[5].innerText == 'O' && box[8].innerText == 'O'){
+    } else if (
+      boxes[2].innerText == 'O' && boxes[5].innerText == 'O' && boxes[8].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[0].innerText == 'O' && box[4].innerText == 'O' && box[8].innerText == 'O'){
+    } else if (
+      boxes[0].innerText == 'O' && boxes[4].innerText == 'O' && boxes[8].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();
-    } else if ( 
-      box[2].innerText == 'O' && box[4].innerText == 'O' && box[6].innerText == 'O'){
+    } else if (
+      boxes[2].innerText == 'O' && boxes[4].innerText == 'O' && boxes[6].innerText == 'O'){
       msg.innerText = 'O WIN!'; topNumber++; clearClick();}}
 
   function checkIfLocked(){
@@ -121,10 +127,11 @@ function winCombo() {
   }
 
   function clearClick() {
-  for (i = 0; i < box.length; i++) {
-      var active = box[i];
-      if (active.innerText == '') {
-        console.log('empty');
-        active.onclick = function(){
-          return false;}
-      }}}
+    for ( let box of boxes ) {
+      if( box.innerText === '' ) {
+        box.onclick = function() {
+          return false;
+        }
+      }
+    }
+  }
