@@ -14,7 +14,7 @@
 
 ##  Project Link
 
-* https://jsfiddle.net/gregoryreyes/rot2jLv0/16/
+* https://gregreyes.dev/projects/tic-tac-toe/
 
 ## Description
 
@@ -28,4 +28,7 @@ The classic Tic Tac Toe game. A DOM manipulation demonstration using vanilla Jav
 
 ## Setup
 
-* Coming soon...
+```sh
+git clone https://github.com/gregoryreyes/ticTacToe.git;
+cd ticTactoe;
+```
