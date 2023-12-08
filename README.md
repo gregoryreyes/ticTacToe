@@ -30,5 +30,5 @@ The classic Tic Tac Toe game. A DOM manipulation demonstration using vanilla Jav
 
 ```sh
 git clone https://github.com/gregoryreyes/ticTacToe.git;
-cd ticTactoe;
+cd ticTacToe;
 ```
